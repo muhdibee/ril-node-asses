@@ -13,6 +13,6 @@ const server = http.createServer((req, res)=> {
 });
 
 
-server.listen(portNum, ()=>{
+server.listen(process.env.PORT || portNum, ()=>{
     console.log('Listening on port: ',portNum);
 });
