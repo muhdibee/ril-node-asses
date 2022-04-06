@@ -6,18 +6,14 @@ const welcomeMessage = {
     "status":"ok", "message":"Welcome to Muhammad Ibrahim's server", "email":"muhdibee@gmail.com"
 };
 const names = {
-    "status": "status",
+    "status": "ok",
     "names": [
         {
             "user_id": 100,
-            "name": "Olusegun"
+            "name": "Muhammad"
         }
     ]
 }
-
-const input = {
-    "name": "Ibrahim"
-  }
 
 const server = http.createServer((req, res)=> {
     res.setHeader('Access-Control-Allow-Origin', "*");
@@ -34,14 +30,36 @@ const server = http.createServer((req, res)=> {
             res.writeHead(200); //status code HTTP 200 / ok
             res.end(JSON.stringify(names));
             return;
-
         }
     }
+
+    // else if(req.method == 'POST'){
+    //     if(req.url == '/names'){
+    //         res.setHeader('Content-type', 'application/json');
+    //         res.writeHead(200); //status code HTTP 200 / ok
+
+    //         let data = "";
+    //         let response ={
+    //             "status": "ok",
+    //         };
+
+    //         req.on('data', chunk => {
+    //             data +=chunk;
+    //         } );
+    //         req.on('end', () => {
+    //             let name = JSON.parse(data).name;
+    //             response = {...response, "name": name}
+    //             res.end(response);
+    //         })
+    //         return;
+    //     }
+
+    // }
 });
 
 
-server.listen(process.env.PORT ||portNum, ()=>{
-    console.log('Listening on port: ',portNum);
+server.listen(process.env.PORT || portNum, ()=>{
+    console.log('Listening on port: ', portNum);
 });
 
 // fs.readFile('./data.js', 'utf8', (err, data) => {
